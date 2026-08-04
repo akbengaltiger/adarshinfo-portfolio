@@ -1,101 +1,165 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+import {
+  Rocket,
+  ShieldCheck,
+  MonitorSmartphone,
+  Globe,
+  Server,
+  ArrowRight,
+} from "lucide-react";
+
+const services = [
+  {
+    icon: <Server className="h-8 w-8 text-cyan-400" />,
+    title: "IT Infrastructure",
+    description:
+      "Enterprise infrastructure planning, deployment and maintenance.",
+  },
+  {
+    icon: <ShieldCheck className="h-8 w-8 text-cyan-400" />,
+    title: "Cyber Security",
+    description:
+      "Security best practices, endpoint protection and compliance.",
+  },
+  {
+    icon: <MonitorSmartphone className="h-8 w-8 text-cyan-400" />,
+    title: "Desktop Support",
+    description:
+      "Professional onsite and remote IT support for organizations.",
+  },
+  {
+    icon: <Globe className="h-8 w-8 text-cyan-400" />,
+    title: "Web Development",
+    description:
+      "Modern responsive business websites and enterprise web applications.",
+  },
+];
 
 export default function Startup() {
   return (
-    <section
-      id="startup"
-      className="py-24 bg-[#050816] text-white"
-    >
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="startup" className="py-28">
+      <div className="mx-auto max-w-7xl px-6">
 
-        <div className="text-center mb-16">
-
-          <span className="text-sky-400 uppercase tracking-[4px]">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-widest text-cyan-400">
             Startup
           </span>
 
-          <h2 className="text-5xl font-bold mt-4">
-            AK IT Enterprises
+          <h2 className="mt-6 text-4xl md:text-5xl font-black text-white">
+            AK IT
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              {" "}Enterprises
+            </span>
           </h2>
 
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto text-lg">
-            My technology startup focused on delivering secure IT
-            infrastructure, enterprise solutions, web applications,
-            automation and digital transformation services.
+          <p className="mt-6 max-w-3xl text-lg text-slate-400 leading-8">
+            AK IT Enterprises is my technology startup focused on delivering
+            enterprise IT solutions, infrastructure services, cyber security,
+            IT consulting and modern web development for businesses.
           </p>
+        </motion.div>
 
-        </div>
+        <div className="mt-16 grid lg:grid-cols-2 gap-12 items-center">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left */}
 
-          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
 
-          <div className="flex justify-center">
+            <div className="relative">
 
-            <Image
-              src="/images/ak-logo.jpg"
-              alt="AK IT Enterprises"
-              width={500}
-              height={500}
-              className="rounded-3xl shadow-[0_0_40px_#00bfff55]"
-            />
+              <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-3xl" />
 
-          </div>
+              <Image
+                src="/images/ak-logo.jpg"
+                alt="AK IT Enterprises"
+                width={300}
+                height={300}
+                priority
+                className="relative rounded-full border-4 border-cyan-500 shadow-[0_0_60px_rgba(6,182,212,.35)]"
+              />
 
-          {/* Content */}
+            </div>
 
-          <div>
+          </motion.div>
 
-            <h3 className="text-3xl font-bold mb-6">
+          {/* Right */}
 
-              Building Future Ready IT Solutions
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
 
-            </h3>
+            <div className="rounded-3xl border border-cyan-500/10 bg-slate-900/60 p-8 backdrop-blur-xl">
 
-            <p className="text-gray-400 leading-8 mb-8">
+              <div className="flex items-center gap-3">
 
-              AK IT Enterprises is founded with a vision to help
-              businesses modernize their IT infrastructure,
-              automate operations and build secure digital
-              solutions using modern technologies.
+                <Rocket className="text-cyan-400" size={28} />
 
-            </p>
+                <h3 className="text-3xl font-bold text-white">
+                  Founder Vision
+                </h3>
 
-            <div className="grid grid-cols-2 gap-4">
-
-              <div className="glass-card p-4 rounded-xl">
-                🌐 Website Development
               </div>
 
-              <div className="glass-card p-4 rounded-xl">
-                💻 Software Development
+              <p className="mt-6 text-slate-300 leading-8">
+                My vision is to build AK IT Enterprises into a trusted
+                technology company delivering innovative IT infrastructure,
+                digital transformation, automation and enterprise software
+                solutions for organizations across India.
+              </p>
+
+              <div className="mt-10 grid sm:grid-cols-2 gap-5">
+
+                {services.map((service) => (
+                  <div
+                    key={service.title}
+                    className="rounded-2xl border border-cyan-500/10 bg-slate-800/50 p-5 transition hover:border-cyan-400 hover:-translate-y-2 duration-300"
+                  >
+                    {service.icon}
+
+                    <h4 className="mt-4 text-lg font-semibold text-white">
+                      {service.title}
+                    </h4>
+
+                    <p className="mt-2 text-sm text-slate-400 leading-6">
+                      {service.description}
+                    </p>
+
+                  </div>
+                ))}
+
               </div>
 
-              <div className="glass-card p-4 rounded-xl">
-                🖥 IT Infrastructure
-              </div>
+              <div className="mt-10">
 
-              <div className="glass-card p-4 rounded-xl">
-                🔒 Cyber Security
-              </div>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
+                >
+                  Let's Build Together
 
-              <div className="glass-card p-4 rounded-xl">
-                ☁ Cloud Solutions
-              </div>
+                  <ArrowRight size={18} />
 
-              <div className="glass-card p-4 rounded-xl">
-                ⚙ Automation
+                </a>
+
               </div>
 
             </div>
 
-            <button
-              className="mt-10 px-8 py-4 rounded-xl bg-sky-500 hover:bg-sky-600 transition"
-            >
-              Website Coming Soon
-            </button>
-
-          </div>
+          </motion.div>
 
         </div>
 

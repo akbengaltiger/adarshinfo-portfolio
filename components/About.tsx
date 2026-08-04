@@ -1,82 +1,122 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Briefcase,
+  GraduationCap,
+  Building2,
+  Award,
+  CheckCircle2,
+} from "lucide-react";
+
 export default function About() {
+  const highlights = [
+    "Windows Server Administration",
+    "Active Directory & Group Policy",
+    "Microsoft 365 Administration",
+    "Networking & IT Infrastructure",
+    "Asset & Endpoint Management",
+    "Full Stack Web Development",
+  ];
+
+  const stats = [
+    {
+      icon: <Briefcase className="h-8 w-8 text-cyan-400" />,
+      value: "6+",
+      title: "Years Experience",
+    },
+    {
+      icon: <Award className="h-8 w-8 text-cyan-400" />,
+      value: "20+",
+      title: "Projects Completed",
+    },
+    {
+      icon: <GraduationCap className="h-8 w-8 text-cyan-400" />,
+      value: "B.Sc IT",
+      title: "Education",
+    },
+    {
+      icon: <Building2 className="h-8 w-8 text-cyan-400" />,
+      value: "Oct 2025",
+      title: "Current Company",
+    },
+  ];
+
   return (
-    <section
-      id="about"
-      className="section text-white py-28"
-    >
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="relative py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+              About Me
+            </span>
 
-        {/* Left */}
+            <h2 className="mt-6 text-4xl font-black leading-tight text-white md:text-5xl">
+              Building Secure IT Infrastructure &
+              <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Modern Digital Solutions
+              </span>
+            </h2>
 
-        <div>
+            <p className="mt-8 text-lg leading-8 text-slate-300">
+              I'm <strong>Adarsh Kumar Singh</strong>, an{" "}
+              <strong>IT Team Leader</strong> with over{" "}
+              <strong>6 years of experience</strong> in IT Infrastructure,
+              Windows Server, Active Directory, Microsoft 365, Networking,
+              Desktop Support and Full Stack Development.
+            </p>
 
-          <span className="text-sky-400 font-semibold tracking-widest uppercase">
-            About Me
-          </span>
+            <p className="mt-6 leading-8 text-slate-400">
+              Along with leading enterprise IT operations, I am also the
+              founder of <strong>AK IT Enterprises</strong>, where I focus on
+              delivering innovative technology solutions, automation, and modern
+              web applications that help businesses grow securely and
+              efficiently.
+            </p>
 
-          <h2 className="text-5xl font-bold mt-4">
-            Passionate about Infrastructure &
-            <span className="text-sky-400"> Full Stack Development</span>
-          </h2>
+            <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              {highlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-xl border border-cyan-500/10 bg-slate-900/50 p-3"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-cyan-400" />
+                  <span className="text-slate-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-          <p className="text-slate-300 mt-8 leading-8 text-lg">
-            I am Adarsh Kumar Singh, an IT Team Leader with 6+ years of
-            experience in IT Infrastructure, Windows Server, Active Directory,
-            Microsoft 365, Networking, Asset Management, and Full Stack
-            Development.
-          </p>
+          {/* Right */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid gap-6 sm:grid-cols-2"
+          >
+            {stats.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-cyan-500/10 bg-slate-900/60 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.25)]"
+              >
+                <div className="mb-5">{item.icon}</div>
 
-          <p className="text-slate-400 mt-6 leading-8">
-            I enjoy designing enterprise-grade solutions, automating IT
-            operations, and developing secure, scalable web applications. I
-            continuously learn new technologies and focus on building practical
-            solutions that improve business productivity.
-          </p>
+                <h3 className="text-3xl font-bold text-cyan-400">
+                  {item.value}
+                </h3>
 
+                <p className="mt-2 text-slate-300">{item.title}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
-
-        {/* Right */}
-
-        <div className="grid grid-cols-2 gap-5">
-
-          <div className="rounded-2xl border border-slate-800 p-6 bg-slate-900/40">
-            <h3 className="text-4xl font-bold text-sky-400">
-              6+
-            </h3>
-            <p className="mt-2 text-slate-300">
-              Years Experience
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 p-6 bg-slate-900/40">
-            <h3 className="text-4xl font-bold text-sky-400">
-              20+
-            </h3>
-            <p className="mt-2 text-slate-300">
-              Projects Completed
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 p-6 bg-slate-900/40">
-            <h3 className="text-4xl font-bold text-sky-400">
-              B.Sc
-            </h3>
-            <p className="mt-2 text-slate-300">
-              Information Technology
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 p-6 bg-slate-900/40">
-            <h3 className="text-4xl font-bold text-sky-400">
-              Oct 2025
-            </h3>
-            <p className="mt-2 text-slate-300">
-              Current Company
-            </p>
-          </div>
-
-        </div>
-
       </div>
     </section>
   );
