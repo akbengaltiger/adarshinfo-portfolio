@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import Button from "../ui/Button";
@@ -31,31 +32,49 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/70 backdrop-blur-xl border-b border-cyan-500/20 shadow-xl"
+          ? "border-b border-cyan-500/20 bg-slate-950/80 shadow-xl backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
         {/* Logo */}
+        <Link href="/" className="flex items-center gap-4">
 
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-full bg-cyan-500 flex items-center justify-center text-black font-bold">
-            AK
+          <div className="relative">
+
+            <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-xl"></div>
+
+            <Image
+              src="/images/logo.png"
+              alt="Adarsh Kumar Singh"
+              width={56}
+              height={56}
+              priority
+              className="relative rounded-full border border-cyan-500/40 shadow-[0_0_20px_rgba(6,182,212,.45)]"
+              style={{
+                width: "56px",
+                height: "56px",
+              }}
+            />
+
           </div>
 
           <div>
-            <h1 className="font-bold text-lg text-white">
+
+            <h1 className="text-lg font-bold text-white leading-tight">
               Adarsh Kumar Singh
             </h1>
 
-            <p className="text-xs text-cyan-400">
+            <p className="text-sm text-cyan-400">
               AK IT Enterprises
             </p>
+
           </div>
+
         </Link>
 
-        {/* Desktop */}
+        {/* Desktop Navigation */}
 
         <nav className="hidden lg:flex items-center gap-8">
 
@@ -63,7 +82,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-slate-300 hover:text-cyan-400 transition font-medium"
+              className="font-medium text-slate-300 transition hover:text-cyan-400"
             >
               {item.name}
             </a>
@@ -71,7 +90,9 @@ export default function Navbar() {
 
         </nav>
 
-        <div className="hidden lg:flex gap-3">
+        {/* Right Buttons */}
+
+        <div className="hidden lg:flex items-center gap-3">
 
           <Button
             href="/resume/ADARSH_KUMAR_SINGH_Resume.pdf"
@@ -89,10 +110,10 @@ export default function Navbar() {
 
         </div>
 
-        {/* Mobile */}
+        {/* Mobile Menu */}
 
         <button
-          className="lg:hidden"
+          className="text-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? (
@@ -104,25 +125,41 @@ export default function Navbar() {
 
       </div>
 
-      {mobileOpen && (
+      {/* Mobile Navigation */}
 
-        <div className="lg:hidden bg-slate-900 border-t border-cyan-500/20">
+      {mobileOpen && (
+        <div className="border-t border-cyan-500/20 bg-slate-900/95 backdrop-blur-xl lg:hidden">
 
           {navItems.map((item) => (
-
             <a
               key={item.name}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-6 py-4 hover:bg-cyan-500/10"
+              className="block px-6 py-4 text-slate-300 transition hover:bg-cyan-500/10 hover:text-cyan-400"
             >
               {item.name}
             </a>
-
           ))}
 
-        </div>
+          <div className="space-y-3 border-t border-cyan-500/20 p-6">
 
+            <Button
+              href="/resume/ADARSH_KUMAR_SINGH_Resume.pdf"
+              variant="secondary"
+            >
+              <div className="flex items-center justify-center gap-2">
+                <Download size={18} />
+                Resume
+              </div>
+            </Button>
+
+            <Button href="#contact">
+              Hire Me
+            </Button>
+
+          </div>
+
+        </div>
       )}
     </header>
   );

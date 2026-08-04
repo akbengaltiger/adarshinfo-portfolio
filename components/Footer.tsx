@@ -1,13 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa";
-
-import { Mail, Globe } from "lucide-react";
+import { Mail, Globe, MapPin, Phone } from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "#home" },
@@ -15,7 +15,23 @@ const quickLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "AK IT", href: "#startup" },
   { name: "Contact", href: "#contact" },
+];
+
+const technologies = [
+  "Windows Server",
+  "Active Directory",
+  "Microsoft 365",
+  "Azure",
+  "Docker",
+  "Linux",
+  "Networking",
+  "Next.js",
+  "React",
+  "PowerShell",
+  "Virtualization",
+  "Automation",
 ];
 
 export default function Footer() {
@@ -24,39 +40,51 @@ export default function Footer() {
 
       <div className="mx-auto max-w-7xl px-6 py-20">
 
-        <div className="grid gap-12 lg:grid-cols-4">
+        <div className="grid gap-14 lg:grid-cols-4">
 
-          {/* Brand */}
+          {/* ================= BRAND ================= */}
 
           <div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-2xl font-black text-white shadow-lg shadow-cyan-500/30">
-                AK
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="Adarsh Kumar Singh"
+                width={70}
+                height={70}
+                priority
+                className="rounded-full border border-cyan-500/30 shadow-[0_0_25px_rgba(6,182,212,.35)]"
+                style={{
+                  width: "70px",
+                  height: "70px",
+                }}
+              />
 
               <div>
+
                 <h2 className="text-2xl font-bold text-white">
                   Adarsh Kumar Singh
                 </h2>
 
                 <p className="text-sm text-cyan-400">
-                  IT Team Leader
+                  IT Team Leader | System Administrator
                 </p>
+
               </div>
 
             </div>
 
             <p className="mt-6 leading-8 text-slate-400">
-              Passionate IT professional specializing in Windows Server,
-              Active Directory, Microsoft 365, Networking, Infrastructure
-              Management and Full Stack Development.
+              Passionate IT professional specializing in Enterprise
+              Infrastructure, Windows Server, Active Directory,
+              Microsoft 365, Networking, Virtualization,
+              Automation and Full Stack Development.
             </p>
 
           </div>
 
-          {/* Quick Links */}
+          {/* ================= QUICK LINKS ================= */}
 
           <div>
 
@@ -70,7 +98,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-400 transition hover:text-cyan-400"
+                    className="text-slate-400 transition-all duration-300 hover:pl-2 hover:text-cyan-400"
                   >
                     {item.name}
                   </Link>
@@ -81,28 +109,32 @@ export default function Footer() {
 
           </div>
 
-          {/* Services */}
+          {/* ================= CORE TECHNOLOGIES ================= */}
 
           <div>
 
             <h3 className="mb-6 text-xl font-semibold text-white">
-              Expertise
+              Core Technologies
             </h3>
 
-            <ul className="space-y-3 text-slate-400">
+            <div className="flex flex-wrap gap-3">
 
-              <li>Windows Server</li>
-              <li>Active Directory</li>
-              <li>Microsoft 365</li>
-              <li>Networking</li>
-              <li>IT Infrastructure</li>
-              <li>Full Stack Development</li>
+              {technologies.map((tech) => (
 
-            </ul>
+                <span
+                  key={tech}
+                  className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500 hover:text-black"
+                >
+                  {tech}
+                </span>
+
+              ))}
+
+            </div>
 
           </div>
 
-          {/* Contact */}
+          {/* ================= CONTACT ================= */}
 
           <div>
 
@@ -121,40 +153,59 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://adarshinfo.in"
+                href="https://www.adarshinfo.in"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-slate-400 transition hover:text-cyan-400"
               >
                 <Globe size={18} />
-                adarshinfo.in
+                www.adarshinfo.in
               </a>
+
+              <a
+                href="tel:+917700082302"
+                className="flex items-center gap-3 text-slate-400 transition hover:text-cyan-400"
+              >
+                <Phone size={18} />
+                +91 77000 82302
+              </a>
+
+              <div className="flex items-center gap-3 text-slate-400">
+                <MapPin size={18} />
+                Kolkata, India
+              </div>
 
             </div>
 
-            <div className="mt-8 flex gap-5">
+            {/* Social */}
+
+            <div className="mt-8 flex gap-4">
 
               <a
                 href="https://github.com/akbengaltiger"
                 target="_blank"
-                className="text-slate-400 transition hover:scale-110 hover:text-cyan-400"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500 hover:text-black"
               >
-                <FaGithub size={24} />
+                <FaGithub size={20} />
               </a>
 
               <a
                 href="https://www.linkedin.com/in/singhadarshkumar"
                 target="_blank"
-                className="text-slate-400 transition hover:scale-110 hover:text-cyan-400"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500 hover:text-black"
               >
-                <FaLinkedin size={24} />
+                <FaLinkedin size={20} />
               </a>
 
               <a
                 href="https://wa.me/917700082302"
                 target="_blank"
-                className="text-slate-400 transition hover:scale-110 hover:text-green-500"
+                rel="noopener noreferrer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900 transition-all duration-300 hover:border-green-500 hover:bg-green-500 hover:text-white"
               >
-                <FaWhatsapp size={24} />
+                <FaWhatsapp size={20} />
               </a>
 
             </div>
@@ -165,15 +216,21 @@ export default function Footer() {
 
       </div>
 
-      <div className="border-t border-slate-800 py-6 text-center">
+      {/* ================= COPYRIGHT ================= */}
 
-        <p className="text-slate-500">
+      <div className="border-t border-cyan-500/10">
 
-          © {new Date().getFullYear()} Adarsh Kumar Singh.
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-slate-500 md:flex-row">
 
-          Built with ❤️ using Next.js, Tailwind CSS & TypeScript.
+          <p>
+            © {new Date().getFullYear()} Adarsh Kumar Singh. All Rights Reserved.
+          </p>
 
-        </p>
+          <p>
+            Designed & Developed with ❤️ using Next.js 16 • Tailwind CSS • TypeScript
+          </p>
+
+        </div>
 
       </div>
 
