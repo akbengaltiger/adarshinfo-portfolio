@@ -170,9 +170,9 @@ export default function Footer() {
                 +91 77000 82302
               </a>
 
-              <div className="flex items-center gap-3 text-slate-400">
+              <div className="flex items-center gap-3 text-slate-400 transition hover:text-cyan-400">
                 <MapPin size={18} />
-                Maharashtra, India
+                Thane, Maharashtra, India
               </div>
 
             </div>
