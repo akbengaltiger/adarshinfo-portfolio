@@ -172,7 +172,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3 text-slate-400">
                 <MapPin size={18} />
-                Kolkata, India
+                Maharashtra, India
               </div>
 
             </div>

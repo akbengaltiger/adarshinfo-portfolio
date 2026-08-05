@@ -4,6 +4,7 @@ import "./globals.css";
 
 import LoaderProvider from "@/components/LoaderProvider";
 import StructuredData from "@/components/StructuredData";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,10 +123,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* SEO Structured Data */}
         <StructuredData />
 
-        {/* Global Loader */}
+        <SmoothScroll />
+
         <LoaderProvider>
           {children}
         </LoaderProvider>
