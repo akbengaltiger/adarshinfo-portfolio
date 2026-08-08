@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 /* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  color-scheme: dark;
+}
+
+/* =========================================================
    GLOBAL STYLES
 ========================================================= */
 
@@ -13,7 +21,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-
   overscroll-behavior-y: none;
 
   background: #030712;
@@ -42,6 +49,7 @@ body {
 
 section {
   padding: 120px 0;
+  position: relative;
 }
 
 /* =========================================================
@@ -84,7 +92,33 @@ section {
 
 a {
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition:
+    color .3s ease,
+    background-color .3s ease,
+    border-color .3s ease,
+    transform .3s ease;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+  cursor: pointer;
+  transition:
+    color .3s ease,
+    background-color .3s ease,
+    transform .3s ease;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+  outline: 3px solid #06b6d4;
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 /* =========================================================
@@ -95,6 +129,14 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* =========================================================
+   SVG
+========================================================= */
+
+svg {
+  flex-shrink: 0;
 }
 
 /* =========================================================
@@ -116,4 +158,40 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #06b6d4;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  nav,
+  footer {
+    display: none;
+  }
 }

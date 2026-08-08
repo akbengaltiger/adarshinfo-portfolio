@@ -25,9 +25,12 @@ const particles = [
 
 export default function HeroBackground() {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
-
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
       {/* Top Glow */}
+
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
@@ -38,14 +41,15 @@ export default function HeroBackground() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -top-32 -left-24 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[160px]"
+        className="absolute -left-24 -top-32 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[160px]"
       />
 
       {/* Bottom Glow */}
+
       <motion.div
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.15, 0.3, 0.15],
+          opacity: [0.15, 0.30, 0.15],
         }}
         transition={{
           duration: 10,
@@ -56,6 +60,7 @@ export default function HeroBackground() {
       />
 
       {/* Center Glow */}
+
       <motion.div
         animate={{
           scale: [1, 1.08, 1],
@@ -69,7 +74,8 @@ export default function HeroBackground() {
         className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[130px]"
       />
 
-      {/* Animated Grid */}
+      {/* Grid */}
+
       <motion.div
         animate={{
           y: [0, 40, 0],
@@ -90,9 +96,10 @@ export default function HeroBackground() {
       />
 
       {/* Floating Particles */}
-      {particles.map((particle, i) => (
-        <motion.div
-          key={i}
+
+      {particles.map((particle, index) => (
+        <motion.span
+          key={`${particle.left}-${particle.top}`}
           className="absolute h-1.5 w-1.5 rounded-full bg-cyan-400"
           style={{
             left: `${particle.left}%`,
@@ -104,15 +111,16 @@ export default function HeroBackground() {
             scale: [1, 1.6, 1],
           }}
           transition={{
-            duration: 3 + (i % 4),
+            duration: 3 + (index % 4),
             repeat: Infinity,
-            delay: i * 0.25,
+            delay: index * 0.25,
             ease: "easeInOut",
           }}
         />
       ))}
 
-      {/* Animated Horizontal Lines */}
+      {/* Horizontal Scan Line */}
+
       <motion.div
         animate={{
           x: ["-100%", "100%"],
@@ -124,6 +132,8 @@ export default function HeroBackground() {
         }}
         className="absolute top-1/3 h-px w-40 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"
       />
+
+      {/* Second Scan Line */}
 
       <motion.div
         animate={{
@@ -137,12 +147,13 @@ export default function HeroBackground() {
         className="absolute bottom-1/3 h-px w-56 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
       />
 
-      {/* Noise Overlay */}
+      {/* Noise */}
+
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,.7) 1px, transparent 0)",
           backgroundSize: "24px 24px",
         }}
       />

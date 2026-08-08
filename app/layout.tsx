@@ -5,6 +5,7 @@ import "./globals.css";
 import LoaderProvider from "@/components/LoaderProvider";
 import StructuredData from "@/components/StructuredData";
 import SmoothScroll from "@/components/SmoothScroll";
+import SkipToContent from "@/components/SkipToContent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -121,15 +122,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body
+        className={`${inter.className} bg-slate-950 text-white antialiased`}
+      >
+        {/* Skip Navigation */}
+        <SkipToContent />
+
+        {/* SEO Structured Data */}
         <StructuredData />
 
+        {/* Smooth Scroll */}
         <SmoothScroll />
 
-        <LoaderProvider>
-          {children}
-        </LoaderProvider>
+        {/* Website */}
+        <main id="main-content">
+          <LoaderProvider>
+            {children}
+          </LoaderProvider>
+        </main>
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   tech: string[];
   github: string;
   demo: string;
@@ -15,7 +15,6 @@ export const projects: Project[] = [
     title: "IT Governance Portal",
     description:
       "Enterprise IT Governance Portal developed using Laravel with RBAC, audit logs, document management, compliance tracking, and dashboard analytics.",
-    image: "/projects/it-governance.jpg",
     tech: [
       "Laravel",
       "PHP",
@@ -33,8 +32,7 @@ export const projects: Project[] = [
     id: 2,
     title: "Asset Inventory Management",
     description:
-      "Centralized IT asset inventory system with QR code generation, employee mapping, reporting, and lifecycle tracking.",
-    image: "/projects/asset-management.jpg",
+      "Centralized IT asset inventory system with QR code generation, employee mapping, reporting, and complete asset lifecycle tracking.",
     tech: [
       "Laravel",
       "MySQL",
@@ -50,11 +48,10 @@ export const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "Personal portfolio built using Next.js, Tailwind CSS, Framer Motion, EmailJS, responsive design, and modern UI/UX.",
-    image: "/projects/portfolio.jpg",
     tech: [
       "Next.js",
       "React",
-      "Tailwind",
+      "Tailwind CSS",
       "TypeScript",
       "EmailJS",
       "Framer Motion",
@@ -67,8 +64,7 @@ export const projects: Project[] = [
     id: 4,
     title: "Vulnerability Assessment Manager",
     description:
-      "Security dashboard for vulnerability management, monitoring endpoints, report generation, and remediation tracking.",
-    image: "/projects/vam.jpg",
+      "Security dashboard for vulnerability management, endpoint monitoring, report generation, vulnerability tracking, and remediation management.",
     tech: [
       "Laravel",
       "Docker",
@@ -84,8 +80,7 @@ export const projects: Project[] = [
     id: 5,
     title: "Desktop Support Automation",
     description:
-      "Automation tools for Windows administration, software deployment, reporting, PowerShell scripting, and IT operations.",
-    image: "/projects/automation.jpg",
+      "Automation tools for Windows administration, software deployment, reporting, PowerShell scripting, system management, and IT operations.",
     tech: [
       "PowerShell",
       "Windows",
@@ -100,8 +95,7 @@ export const projects: Project[] = [
     id: 6,
     title: "Infrastructure Monitoring",
     description:
-      "Monitoring solution using Grafana, Zabbix, Wazuh, and Docker for real-time infrastructure health monitoring and alerts.",
-    image: "/projects/monitoring.jpg",
+      "Infrastructure monitoring solution using Grafana, Zabbix, Wazuh, and Docker for real-time server health monitoring, alerts, and operational visibility.",
     tech: [
       "Grafana",
       "Zabbix",
