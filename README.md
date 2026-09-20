@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AdarshInfo Portfolio
 
-## Getting Started
+A modern personal portfolio website for **Adarsh Kumar Singh**, showcasing IT infrastructure, systems administration, network monitoring, cybersecurity, automation, and technology projects.
 
-First, run the development server:
+## 🌐 Live Website
+
+**[Visit adarshinfo.in](https://www.adarshinfo.in/)**
+
+## 🚀 About the Project
+
+AdarshInfo is my professional portfolio and online presence. It presents my technical background, IT experience, skills, projects, and areas of interest in a clean and accessible web experience.
+
+## ✨ Highlights
+
+- Professional personal portfolio
+- Responsive web experience
+- IT skills and technical expertise showcase
+- Projects and work presentation
+- Modern Next.js architecture
+- Production deployment
+
+## 🛠️ Tech Stack
+
+- **Next.js**
+- **React**
+- **TypeScript / JavaScript**
+- **CSS**
+- **Vercel**
+
+## 💼 Areas of Focus
+
+- IT Infrastructure
+- Systems Administration
+- Network Monitoring
+- Cybersecurity & SIEM
+- Linux & Windows Administration
+- IT Automation
+- Internal Tools & Dashboards
+
+## 🔗 Links
+
+- **Live:** [https://www.adarshinfo.in/](https://www.adarshinfo.in/)
+- **GitHub Profile:** [@akbengaltiger](https://github.com/akbengaltiger)
+
+## 📦 Local Development
+
+Clone the repository and install the dependencies:
 
 ```bash
+git clone https://github.com/akbengaltiger/adarshinfo-portfolio.git
+cd adarshinfo-portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The production website is deployed and available at:
 
-## Learn More
+**[www.adarshinfo.in](https://www.adarshinfo.in/)**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adarsh Kumar Singh
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+IT Infrastructure • Systems Administration • Network Monitoring • Cybersecurity • Automation
